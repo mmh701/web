@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* 이건 주석 */
+
+#i2 {
+	background-color: black;
+	color: white;
+	font-size: 20px;
+}
+table {
+	width:80%; margin-bottom: 10px;
+}
+table#FirstTable tr td{
+	border: 1px solid blue;
+	border-top: 2px dotted #ff0;
+	border-bottom: 3px dashed rgb(0,0,0);
+}
+
+b {
+	font-size:8px;
+}
+div b {
+	font-size:4px;
+}
+div > b {
+	font-size: 16px; color:red;
+}
+div span > b {
+	font-size: 32px; 
+}
+div b#hi{
+	font-size: 40px;
+}
+div b.hello{
+	font-size: 40px; color: yellow;
+}
+i,strong{
+	color: rgb(0%,0%,90%);
+}
+div#sajin{
+	height: 150px;
+	background-image: url("../images/1.jpg")
+}
+img {
+	border: 5px dotted red;
+}
+/* 동적 선택자 */
+input:focus{
+	background-color: #aabbcc;
+}
+a:link{
+	text-decoration: none;
+}
+a:active{
+	color: yellow; font-family: 돋움
+}
+a:hover{
+	color: silver;
+	font-size: 10pt;
+}
