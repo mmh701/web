@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	width: 95%; 		/* 전체 페이지 너비를 화면 너비의 95%로 설정 */
+	margin: 0 auto; 	/* 페이지를 화면 중앙에 배치 */
+}
+h2#title {
+	text-align: center;
+	border-bottom: 2px dashed black;
+	padding-bottom: 10px;
+}
+ul {
+	list-style: none; 	/* 목록 스타일 제거 */
+	padding: 0;			/* 안쪽 여백 제거 */
+	margin: 0;			/* 바깥쪽 여백 제거 */
+}
+li a {
+	display: block;		/* link를 블록 요소로 설정 */
+	
+}
+.head {
+	border: 1px solid red;
+	width: 100%;
+	overflow: auto;		/* 콘텐츠의 내용이 넘칠 경우 자동으로 스크롤바를 추가 */
+	padding: 10px;
+	box-sizing: border-box;	/* 패딩과 테두리를 포함한 너비 설정 */
+}
+.head ul {
+	display: flex; 		/* flex box 레이아웃 설정 */
+	justify-content: center;	/* 항목을 중앙에 배치 */
+	gap: 10px;			/* 항목 사이에 간격 추가 */
+}
+nav {
+	float: left;		/* 왼쪽으로 정렬하여 플로팅 */
+	width: 20%;
+}
+#contents {
+	float: left;
+	width: 55%
+}
+#ad {
+	float: left;
+	width: 25%;
+	text-align: center;
+	font-size: 0.8em;
+}
+footer {
+	clear: both;		/* 플로팅 해제 */
+	text-align: center;
+	margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+<h2 id="title">CSS로 화면 구조 설정 연습</h2>
+<header>
+	<div>여기는 머리글</div>
+	<div class="head">
+		<ul>
+			<li class="go_site"> <a href="https://www.naver.com">네이버</a></li>
+			<li class="go_site"> <a href="https://www.korea.com">코리아</a></li>
+			<li class="go_site"> <a href="https://www.daum.net">다음</a></li>
+		</ul>
+	</div>
+</header>
+<nav>
+	<h3>항복 선택</h3>
+	<ul>
+		<li>메인</li>
+		<li>자동차</li><li>반도체</li><li>배터리</li><li>조선</li>
+	</ul>
+</nav>
+<div id="contents">
+	<h3>핫 이슈 (본문)</h3>
+	<p>
+	현대로템이 프랑스와 중국을 제치고 역대 최대 규모의 해외 철도 사업 수주에 성공했다.26일 현대로템은 모로코 철도청으로부터 약 2조2027억원 규모의 2층 전동차 공급 사업을 수주했다고 밝혔다. 현대로템은 프랑스 알스톰, 중국 CRCC, 스페인 CAF 등과 경쟁한 끝에 이번 사업을 따냈다.
+	</p>
+</div>
+
+<div id="ad">
+	<h3>광고 글</h3>
+	<ol>
+		<li>현대</li><li>삼성</li><li>엘지</li>
+	</ol>
+</div>
+
+<footer>
+	<b>나는 바닥글</b> 공지 사항을 적용
+</footer>
+
+
+
+</body>
+</html>
