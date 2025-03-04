@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+<script type="text/javascript">
+window.onload = function() {
+
+    function calculate() {
+
+        var num1 = parseFloat(document.frm.num1.value);
+        var num2 = parseFloat(document.frm.num2.value);
+        
+        
+        var operator = document.frm.operator.value;
+        
+        var result;
+        
+        switch (operator) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            if (num2 === 0) {
+            	result = "0으로 나눌 수 없습니다.";
+            	break;
+            }
+            result = num1 / num2;
+            break;
+    	}
+        
+
+        document.frm.result.value = result;
+    }
+
+
+    function clearFields() {
+    	document.frm.num1.value = '';
+    	document.frm.num2.value = '';
+    	document.frm.result.value = '';
+    }
+
+    
+    document.querySelector('button.calculate').addEventListener('click', calculate);
+
+    document.querySelector('button.clear').addEventListener('click', clearFields);
+};
+</script>
+</head>
+<body>
+<form name="frm">
+    <table>
+        <tr>
+            <td>숫자1: </td>
+            <td colspan="3"><input type="number" name="num1"/> </td>
+        </tr>
+        <tr>
+            <td>숫자2: </td>
+            <td colspan="3"><input type="number" name="num2"/> </td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="operator" value="+" checked="checked">+</td>
+            <td><input type="radio" name="operator" value="-">-</td>
+            <td><input type="radio" name="operator" value="*">*</td>
+            <td><input type="radio" name="operator" value="/">/</td>
+        </tr>
+        <tr>
+            <td>결과보기: </td>
+            <td colspan="3"><input type="text" name="result" readonly/> </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align:center;">
+                <button type="button" class="calculate">계산</button>
+                <button type="button" class="clear">지우기</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

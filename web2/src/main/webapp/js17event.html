@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func1() {
+	document.getElementById("show").innerText = "전통적인 이벤트 처리";
+}
+
+let a=10;
+let b={
+	funcNew1:function(){
+		document.getElementById("show").innerText = "b 객체의 메소드 처리";
+	},
+	funcNew2:function(){
+		document.getElementById("show").innerHTML = "<h2>b 객체의 멤버 처리</h2>";
+	}
+}
+</script>
+
+<script type="text/javascript">
+function aa() {
+	alert("kk");
+}
+
+//window.onload = aa();
+
+window.onload = function() {	// 익명함수 사용 (일회용 - 초기화를 담당)
+	//alert("kbs");
+	const exBtn1 = document.getElementById("btn1");	// 버튼을 읽어 변수에 기억
+	exBtn1.onclick = function(){	// 이벤트 장착
+		document.getElementById("show").innerText = "클릭1 버튼 선택";
+	}
+	
+	const exBtn2 = document.getElementsByName("myBtn");	// 배열로 저장
+	console.log(exBtn2.length);
+	exBtn2[0].onclick = function(){
+		document.getElementById("show").innerText = "클릭2 버튼 누름";
+	}
+	exBtn2[1].onclick = function(){
+		document.getElementById("show").innerText = "클릭3 버튼 처리";
+	}
+/* 	document.getElementById("btn4").onclick = function(){
+		document.getElementById("show").innerText = "클릭4를 누르다니..";
+	} */
+	document.getElementById("btn4").onclick = btn4HandlerFunc;
+	
+	// 이벤트 연결 및 해제
+	// addEventListner("이벤트 종류", 수행함수)
+	document.getElementById("btn5").addEventListener("click", abcFunc);
+	
+	
+}
+function btn4HandlerFunc(){
+	document.getElementById("show").innerText = "클릭4를 누르다니..";
+}
+function abcFunc(){
+	document.getElementById("show").innerText = "클릭5 만세";
+	
+	// 이벤트 해제 : removeEventListener("이벤트종류", 대상함수명)
+	document.getElementById("btn5").removeEventListener("click", abcFunc);
+}
+
+
+</script>
+</head>
+<!-- <body onload="aa()"> 대신에 js에서 window.onload를 사용-->
+<body>
+<h2>* 이벤트 처리 *</h2>
+<input type = "button" value = "버튼1" onclick="func1()"><br>
+<input type = "button" value = "버튼2" onclick="b.funcNew1()"><br>
+<input type = "button" value = "버튼3" onclick="b.funcNew2()"><br>
+
+<hr>
+<button id="btn1">클릭1</button>
+<button id="btn2" name = "myBtn">클릭2</button>
+<button id="btn3" name = "myBtn">클릭3</button>
+<button id="btn4">클릭4</button>
+<button id="btn5">클릭5</button>
+
+
+
+<div id="show"></div>
+</body>
+</html>

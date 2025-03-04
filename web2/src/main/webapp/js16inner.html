@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func1(){
+	//alert("a");
+	//let str1 = document.getElementById("test1").inerHTML; // 전통적
+	let str1 = document.querySelector("#test1").innerHTML; // css 선택자를 이용
+	//alert(str1);
+	document.querySelector("#show1").innerHTML = "<i>" + str1 + "</i>";
+	
+	let tag1 = "이름 : <input type='text' name='irum'>";
+	let tag2 = "나이 : <input type='text' name='nai'>";
+	document.querySelector("#test1").innerHTML = tag1 + "<br>" + tag2;
+}
+function func2(){
+	//alert("b");
+	let str2 = document.querySelector("#test2").innerText;
+	//alert(str2);
+	document.querySelector("#show2").innerText = "<i>" + str2 + "</i>";
+}
+</script>
+</head>
+<body>
+<h3>실행 중에 tag나 데이터의 생성, 수정, 삭제, 참조 처리 가능 명령</h3>
+innerHTML, innerText 또는 DOM를 사용
+<r>
+<div id="test1"><h2>innerHTML test</h2></div>
+<div id="test2"><h2>안녕하세요</h2></div>
+<input type="button" value="처리1" onclick ="func1()">
+<input type="button" value="처리2" onclick ="func2()">
+<br>
+<div id="show1">출력1</div>
+<div id="show2">출력2</div>
+</body>
+</html>
