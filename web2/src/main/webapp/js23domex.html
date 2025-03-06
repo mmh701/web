@@ -37,11 +37,11 @@ function addRowFunc(sangpum, comment){
 	
 	let col = addColFunc(sangpum);
 	row.appendChild(col);   // <tr><td>볼펜</td></tr>
-	
+	document.getElementById("myTbody").appendChild(row1);
 	col = addColFunc(comment);
 	row.appendChild(col);  // <tr><td>볼펜</td><td>볼펜은 모나미</td></tr>
 	
-	document.getElementById("myTbody").appendChild(row);
+	document.getElementById("myTbody").appendChild(row2);
 }
 
 function addColFunc(data){
