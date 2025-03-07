@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>직원 정보</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#frm").onchange = showFunc;
+}
+
+let xhr;
+
+function showFunc() {
+    xhr = new XMLHttpRequest();
+    let fname = "js35dbtest.jsp?jikwongen=" + frm.gender.value;
+    xhr.open("GET", fname, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            processFunc();
+        }
+    }
+    xhr.send();
+}
+
+function processFunc(){
+    let datas = xhr.responseText;
+    let parseData = JSON.parse(datas);
+    
+    let str = "";
+    for (let i = 0; i < parseData.jikwon.length; i++) {
+        str += parseData.jikwon[i].jikwonno + " " +
+                parseData.jikwon[i].jikwonname + " " +
+                parseData.jikwon[i].jikwonjik + " " +
+                parseData.jikwon[i].jikwonibsail + "<br/>";
+    }
+    
+    document.querySelector("#disp").innerHTML = str;
+}
+
+
+</script>
+</head>
+<body>
+<br>
+
+<form name="frm" id="frm">
+    <input type="radio" name="gender" class="gender" value="all">전체
+    <input type="radio" name="gender" class="gender" value="남">남
+    <input type="radio" name="gender" class="gender" value="여">여
+</form>
+<div id="disp"></div>
+</body>
+</html>
