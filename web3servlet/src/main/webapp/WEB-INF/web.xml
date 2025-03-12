@@ -21,4 +21,10 @@
   	<url-pattern>/HelloServlet</url-pattern>
   </servlet-mapping>
   
+  <!-- 현재 프로젝트 전체에 대해 세션 유효시간을 설정 --> 
+  <!-- 
+  <session-config>
+  	<session-timeout>60</session-timeout>
+  </session-config>
+   -->
 </web-app>

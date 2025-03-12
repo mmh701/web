@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 @WebServlet("/ServletCookie")
@@ -18,7 +19,34 @@ public class ServletCookie extends HttpServlet {
 		out.println("<html><body>");
 		// 특정 클라이언트의 쿠키를 읽어 로그인 화면 출력 여부 결정
 		
+		// 쿠키가 이미 있다면(로그인 한 상태) 로그인 화면 대신 다른 무언가의 작업을 표시함
+		// 웹서버는 클라이언트의 요청이 있는 경우 클라이언트에 저장된 모든 쿠키를 읽어 자신이 만든 쿠키를 찾음
+		String id = null;
+		String pwd = null;
+		try {
+			Cookie[] cookies = request.getCookies();
+			for(int i=0; i < cookies.length; i++) {
+				String name = cookies[i].getName();
+				
+				if(name.equals("id")) {
+					id = URLDecoder.decode(cookies[i].getValue(),"utf-8");
+				}
+				if(name.equals("pwd")) {
+					pwd = URLDecoder.decode(cookies[i].getValue(),"utf-8");
+				}
+			}
+		} catch (Exception e) {
+		}
 		
+		if(id != null && pwd != null) {
+			out.println(id + "님 쿠키를 통해 로그인한 상태임을 확인했어요. 저희가 제공한 모든 정보 즐기세요");
+			out.println("</body></html>");
+			out.close();
+			return;
+		}
+
+		
+		// 쿠키가 없는 경우에만 로그인 화면 출력
 		out.println("* 로그인 *");
 		out.println("<form method='post'>"); // action이 없으면 현재 서블릿을 다시 호출
 		out.println("i d : <input type='text' name='id'><br>");

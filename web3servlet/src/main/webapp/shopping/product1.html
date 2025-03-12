@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.getElementById("btnOk").onclick = function(){
+		// 입력 자료 오류 검사 생략
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><img src="../images/jepum1.jpg" width="80%"/></td>
+		<td>
+		<pre>
+[국내매장판] 뉴발란스 550 화이트 - 남녀공용 스니커즈
+447개 상품평
+59% 151,040원 
+151,040원 쿠팡판매가
+60,000원 와우할인가
+무료배송 토요일 3/15 도착 예정
+판매자: 주식회사 슈퍼트렌드
+다른 판매자 보기(4)
+배송사: CJ 대한통운 
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="../CartServlet" name="frm" method="post">
+				<input type="hidden" name="name" value="뉴발란스 550 화이트">
+				<input type="hidden" name="price" value="60000">
+				
+				<input type="button" id="btnOk" value="장바구니에 담기">
+				<input type="button" value="홈페이지로 이동" onclick="history.back()">
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
